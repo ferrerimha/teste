@@ -1,12 +1,14 @@
-# # Usar uma versão do Python
-FROM python:3.11  
+# Usar uma imagem base do Python
+FROM python:3.11
 
-# Criar uma pasta dentro do container e entrar nela
-WORKDIR /app  
+# Definir o diretório de trabalho
+WORKDIR /app
 
-# Copiar os arquivos do projeto para dentro do container
-COPY . /app  
+# Copiar todos os arquivos do repositório para dentro do container
+COPY . /app
 
-# Instalar as bibliotecas do projeto
+# Instalar as dependências (caso existam)
+RUN pip install --no-cache-dir -r requirements.txt || echo "Sem dependências"
 
-RUN python3 main.py
+# Executar o script Python
+CMD ["python", "main.py"]
