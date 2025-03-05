@@ -1,0 +1,5 @@
+import Time
+
+for i in range (1000):
+  Time.sleep(10)
+  print("rodando")
